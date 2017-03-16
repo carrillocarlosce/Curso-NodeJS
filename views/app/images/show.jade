@@ -1,0 +1,11 @@
+extends ../../layout.jade
+
+block contenido
+	div(class='col-md-6 col-md-offset-3')
+			div(class='panel panel-info')
+				div(class='panel-heading')
+					h2.text-center #{imagen.title}			
+				img(src='/images/#{imagen._id}.#{imagen.extension}' class='img-responsive')
+				div(class='panel-footer')
+					if(typeof imagen.author != 'undefined')
+						i Por #{imagen.author.email}

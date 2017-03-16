@@ -1,0 +1,20 @@
+extends ../../layout.jade
+
+block contenido
+	div(class='container')
+		h2 Imagenes
+		hr
+		.row
+			for imagen in imagenes
+				div.col-md-4
+					div.panel.panel-info
+						.panel-heading
+							h4=imagen.title
+						img(src='/images/#{imagen._id}.#{imagen.extension}' class='img-responsive')
+						.panel-footer
+							.row
+								.col-md-6
+									a(href="/app/imagenes/#{imagen._id}/edit" class='btn btn-info btn-block') Editar
+								.col-md-6
+									form(action="/app/imagenes/#{imagen._id}/?_method=DELETE" method='POST')
+										button(type="submit" class='btn btn-danger btn-block') Eliminar

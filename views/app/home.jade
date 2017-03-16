@@ -1,0 +1,16 @@
+extends ../layout.jade
+
+block contenido
+	div(class='container')
+		h2 Imagenes
+		hr
+		.row
+			for imagen in imagenes
+				div.col-md-4
+					div.panel.panel-info
+						.panel-heading
+							h4=imagen.title
+						img(src='/images/#{imagen._id}.#{imagen.extension}' class='img-responsive')
+						.panel-footer
+							if(typeof imagen.author != 'undefined')
+								i Por #{imagen.author.email}

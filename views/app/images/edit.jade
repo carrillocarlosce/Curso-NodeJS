@@ -1,0 +1,19 @@
+extends ../../layout.jade
+
+block contenido
+	div(class='container' style='margin-top: 50px;')
+		div(class='col-md-6 col-md-offset-3')
+			div(class='panel panel-info')
+				div(class='panel-heading')
+					h3.text-center Editar #{imagen.title}
+				div(class='panel-body')
+					form(action='/app/imagenes/#{imagen._id}?_method=PUT',method='POST')
+						div(class='form-group')
+							label(for='title') Titulo
+							input(type='text' name='title' placeholder='Titulo de la Imagen' id='title' class='form-control' value='#{imagen.title}')
+						div(class='form-group')
+							label(for='file') Imagen
+							input(type='file' name='file' id='file' class='form-control')
+						div(class='row')
+							div(class='col-md-6')
+								input(type='submit' class='btn btn-info btn-block' value='Guardar')
